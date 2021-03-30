@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {makeStyles} from '@material-ui/core'
 
 
@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
 const Add = () => {
     const classes = useStyles()
     const [clicked, setClicked] = useState(false)
+
+    useEffect(() => {
+        setTimeout(() => handleCorrect1(), 500)
+    }, clicked)
 
     const handleCorrect1 = (e) => {
         
@@ -37,6 +41,7 @@ const Add = () => {
          gutsOfFunc.appendChild(lastLine)
          lastLine.appendChild(funcCall)
          button.appendChild(newFunc)
+         console.log('end of handle1 if')
         } else {
             button.innerText = 'Reveal Answer'
         }
@@ -48,7 +53,7 @@ const Add = () => {
         <div >
             <h4>Challenge 1</h4>
             <p>Write a function that accepts two parameters, and adds those two parameters </p>
-            <button id="handleCorrect" className={classes.button} onClick={(e) => {setClicked(!clicked); setTimeout(() => handleCorrect1(e), 500)}}>Reveal Answer</button>
+            <button id="handleCorrect" className={classes.button} onClick={(e) => setClicked(!clicked) }>Reveal Answer</button>
         </div>
     )
 }

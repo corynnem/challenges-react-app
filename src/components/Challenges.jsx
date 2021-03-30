@@ -8,55 +8,39 @@ import PosNum from './SimpleJS/PosNum'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,
+        flexGrow: 10,
     },
     paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
+        float: 'left',
+        display: 'block',
+        marginLeft: '10vw',
+        width: '80vw',              
         color:' white',
         backgroundColor: '#54565a'
-    },
+    }
 }))
 
 
 
 const Challenges = () => {
     const classes = useStyles();
-
+let Components = [<Remainder/>, <Add/>, <PosNum/>]
    
     return (
 <div>
-  
-          <div className={classes.root}>
-            <Grid container spacing={1}>
-                <Grid item s={5}>
+{ Components.map((Component) => {
+        console.log(Component);
+    return <div className={classes.root}>
+            <Grid container spacing={3}>
+                <Grid item xs={3}>
                     <Paper className={classes.paper}>
-                        <Add/>
-                    </Paper>
-                </Grid>
-                <Grid item s={5}>
-                    <Paper className={classes.paper}>
-                         <Remainder/>
-                    </Paper>
-                </Grid>
-                <Grid item s={5}>
-                    <Paper className={classes.paper}>
-                        <PosNum/>
-                    </Paper>
-                </Grid>
-                <Grid item s={5}>
-                    <Paper className={classes.paper}>
-                        
-                    </Paper>
-                </Grid>
-                <Grid item s={5}>
-                    <Paper className={classes.paper}>
-                        
+                    {Component}
                     </Paper>
                 </Grid>
             </Grid>
         </div>
-
+    })
+    }
 </div>
 )
 

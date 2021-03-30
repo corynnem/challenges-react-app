@@ -34,9 +34,9 @@ const Tutorials = () => {
         },
         {
             name: 'Rock Paper Scissors App',
-            link: 'https://www.youtube.com/watch?v=vmpAK2h0UeQ',
-            photoLink: 'https://www.youtube.com/embed/vmpAK2h0UeQ',
-            copyright: ''
+            link: 'https://www.youtube.com/watch?v=jaVNP3nIAv0',
+            photoLink: 'https://www.youtube.com/embed/jaVNP3nIAv0',
+            copyright: 'freeCodeCamp.org'
         },
         {
             name: '',
