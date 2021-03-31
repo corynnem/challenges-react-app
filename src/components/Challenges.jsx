@@ -22,9 +22,19 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const Challenges = () => {
+const Challenges = (props) => {
     const classes = useStyles();
-let Components = [<Remainder/>, <Add/>, <PosNum/>]
+let Components = [{
+    component: <Remainder/>,
+    badge: 'gold'
+},{
+    component: <Add/>,
+    badge: 'gold'
+},{
+    component: <PosNum/>,
+    badge: 'gold'
+}]
+
    
     return (
 <div>
@@ -34,7 +44,8 @@ let Components = [<Remainder/>, <Add/>, <PosNum/>]
             <Grid container spacing={3}>
                 <Grid item xs={3}>
                     <Paper className={classes.paper}>
-                    {Component}
+                        <img style={{float: 'left', height: '7vh'}} src={Component.badge === 'gold' ? props.gold: Component.badge === 'blue' ? props.blue : props.red}/>
+                    {Component.component}
                     </Paper>
                 </Grid>
             </Grid>

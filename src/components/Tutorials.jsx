@@ -6,23 +6,20 @@ import Paper from '@material-ui/core/Paper'
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 10,
-        // backgroundColor: '#e33e42'
     },
     paper: {
-        // padding: theme.spacing(2),
-        // textAlign: 'center',
-        // color: theme.palette.text.secondary
         float: 'left',
         display: 'block',
         marginLeft: '10vw',
         width: '80vw',              
-        
-    }
+        color:' white',
+        backgroundColor: '#54565a'
+    },
 }))
 
 
 
-const Tutorials = () => {
+const Tutorials = (props) => {
     const classes = useStyles();
 
     const tutorials = [
@@ -30,85 +27,99 @@ const Tutorials = () => {
             name: 'html css js small fetch app',
             link: 'https://www.youtube.com/watch?v=vmpAK2h0UeQ',
             photoLink: 'https://www.youtube.com/embed/vmpAK2h0UeQ',
-            copyright: ' tommykelly100'
+            copyright: ' tommykelly100',
+            badge: 'gold'
         },
         {
             name: 'Rock Paper Scissors App',
             link: 'https://www.youtube.com/watch?v=jaVNP3nIAv0',
             photoLink: 'https://www.youtube.com/embed/jaVNP3nIAv0',
-            copyright: 'freeCodeCamp.org'
+            copyright: 'freeCodeCamp.org',
+            badge: 'gold'
         },
         {
-            name: '',
-            link: 'https://www.youtube.com/watch?v=',
-            photoLink: 'https://www.youtube.com/embed/vmpAK2h0UeQ',
-            copyright: ''
+            name: 'Build a Recipe App With React',
+            link: 'https://www.youtube.com/watch?v=U9T6YkEDkMo',
+            photoLink: 'https://www.youtube.com/embed/U9T6YkEDkMo',
+            copyright: 'Dev Ed',
+            badge: 'blue'
         },
         {
-            name: '',
-            link: 'https://www.youtube.com/watch?v=',
-            photoLink: '',
-            copyright: ''
+            name: 'Learn React JS in 5 minutes',
+            link: 'https://www.youtube.com/watch?v=MRIMT0xPXFI',
+            photoLink: 'https://www.youtube.com/embed/MRIMT0xPXFI',
+            copyright: 'Aaron Jack',
+            badge: 'blue'
         },
         {
-            name: '',
-            link: 'https://www.youtube.com/watch?v=',
-            photoLink: 'https://www.youtube.com/embed/',
-            copyright: ''
-        },
-        {
-            name: '',
-            link: 'https://www.youtube.com/watch?v=',
-            photoLink: 'https://www.youtube.com/embed/',
-            copyright: ''
-        },
-        {
-            name: '',
-            link: 'https://www.youtube.com/watch?v=',
-            photoLink: 'https://www.youtube.com/embed/',
-            copyright: ''
+            name: 'Build a Weather App in React JS',
+            link: 'https://www.youtube.com/watch?v=GuA0_Z1llYU',
+            photoLink: 'https://www.youtube.com/embed/GuA0_Z1llYU',
+            copyright: 'Tyler Potts',
+            badge: 'blue'
         },
         {
             name: '',
             link: 'https://www.youtube.com/watch?v=',
             photoLink: 'https://www.youtube.com/embed/',
-            copyright: ''
+            copyright: '',
+            badge: ''
         },
         {
             name: '',
             link: 'https://www.youtube.com/watch?v=',
             photoLink: 'https://www.youtube.com/embed/',
-            copyright: ''
+            copyright: '',
+            badge: ''
         },
         {
             name: '',
             link: 'https://www.youtube.com/watch?v=',
             photoLink: 'https://www.youtube.com/embed/',
-            copyright: ''
+            copyright: '',
+            badge: ''
         },
         {
             name: '',
             link: 'https://www.youtube.com/watch?v=',
             photoLink: 'https://www.youtube.com/embed/',
-            copyright: ''
+            copyright: '',
+            badge: ''
         },
         {
             name: '',
             link: 'https://www.youtube.com/watch?v=',
             photoLink: 'https://www.youtube.com/embed/',
-            copyright: ''
+            copyright: '',
+            badge: ''
         },
         {
             name: '',
             link: 'https://www.youtube.com/watch?v=',
             photoLink: 'https://www.youtube.com/embed/',
-            copyright: ''
+            copyright: '',
+            badge: ''
         },
         {
             name: '',
             link: 'https://www.youtube.com/watch?v=',
             photoLink: 'https://www.youtube.com/embed/',
-            copyright: ''
+            copyright: '',
+            badge: ''
+        },
+        {
+            name: '',
+            link: 'https://www.youtube.com/watch?v=',
+            photoLink: 'https://www.youtube.com/embed/',
+            copyright: '',
+            badge: ''
+        },
+        {
+            name: '',
+            link: 'https://www.youtube.com/watch?v=',
+            photoLink: 'https://www.youtube.com/embed/',
+            copyright: '',
+            badge: ''
         }
     ] 
 
@@ -118,16 +129,20 @@ const Tutorials = () => {
     { tutorials.map((tutorial) => {
         console.log(tutorial);
     return <div className={classes.root}>
-            <Grid container spacing={3}>
+          { tutorial.name === "" ? "" : <Grid container spacing={3}>
                 <Grid item xs={3}>
                     <Paper className={classes.paper}>
+                    <img src={tutorial.badge === "" ? "" : tutorial.badge === 'gold' ? props.gold: tutorial.badge === 'blue' ? props.blue: tutorial.badge} style={{float: 'left', height: '7vh'}}/>
                         <iframe src={tutorial.photoLink} height='300vh' width="300vw"></iframe>
-                        <a href={tutorial.link}>
-                        <h1 style={{padding: '10%'}}>{tutorial.name}</h1></a>
+                    <div style={{backgroundColor: "#e33e42"}}>
+                        <a href={tutorial.link} style={{textDecoration: 'none', color: "white"}}>
+                        <h1 style={{padding: '5%'}}>{tutorial.name}</h1></a>
                         <h5>Video made by:{tutorial.copyright}</h5>
+                       
+                    </div>
                     </Paper>
                 </Grid>
-            </Grid>
+            </Grid> }
         </div>
     })
     }

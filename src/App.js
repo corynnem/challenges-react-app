@@ -12,6 +12,11 @@ import './App.css';
 
 function App() {
 
+  const [goldBadge, setGoldBadge] = useState('https://elevenfifty.org/wp-content/uploads/2020/03/badges-webdev_gold.png')
+  const [blueBadge, setBlueBadge] = useState("https://elevenfifty.org/wp-content/uploads/2020/03/badges-webdev_blue.png")
+  const [redBadge, setRedBadge] = useState("https://elevenfifty.org/wp-content/uploads/2020/03/badges-webdev_red.png")
+  
+
 
 
   return (
@@ -20,10 +25,10 @@ function App() {
       <Navbar/>
         <Switch>
           <Route exact path='/challenges' component={Challenges}>
-            <Challenges/>
+            <Challenges gold={goldBadge} blue={blueBadge} red={redBadge} />
           </Route>
           <Route exact path='/tutorials' component={Tutorials}>
-            <Tutorials/>
+            <Tutorials gold={goldBadge} blue={blueBadge} red={redBadge}/>
           </Route>
           <Route exact path="/feedback" component={Feedback}>
               <Feedback />

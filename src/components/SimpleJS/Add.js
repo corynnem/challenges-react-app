@@ -51,7 +51,7 @@ const Add = () => {
     
     return(
         <div >
-            <h4>Challenge 1</h4>
+            <h4 style={{marginLeft: "-3vw"}}>Challenge 1</h4>
             <p>Write a function that accepts two parameters, and adds those two parameters </p>
             <button id="handleCorrect" className={classes.button} onClick={(e) => setClicked(!clicked) }>Reveal Answer</button>
         </div>
