@@ -22,6 +22,10 @@ const Add = () => {
         setTimeout(() => handleCorrect1(), 500)
     }, clicked)
 
+    const timeoutFunc = () => {
+        setClicked(!clicked);
+        setTimeout(() => handleCorrect1())
+    }
     const handleCorrect1 = (e) => {
         
         let button = document.getElementById('handleCorrect')
@@ -33,7 +37,7 @@ const Add = () => {
         if(clicked === true){
          button.innerText = ''
          newFunc.innerText = 'function remainder(a, b){'
-         gutsOfFunc.innerText = 'return a % b'
+         gutsOfFunc.innerText = 'return a + b'
          lastLine.innerText = '} remainder(7, 3)'
          funcCall.innerText = '--> output: 1'
 
@@ -48,12 +52,13 @@ const Add = () => {
 
     }
 
-    
+
+
     return(
         <div >
-            <h4 style={{marginLeft: "-3vw"}}>Challenge 1</h4>
+            <h4>Challenge 1</h4>
             <p>Write a function that accepts two parameters, and adds those two parameters </p>
-            <button id="handleCorrect" className={classes.button} onClick={(e) => setClicked(!clicked) }>Reveal Answer</button>
+            <button id="handleCorrect" className={classes.button} onClick={(e) => timeoutFunc(e)}>Reveal Answer</button>
         </div>
     )
 }

@@ -18,6 +18,11 @@ const Remainder = (props) => {
     const classes = useStyles();
 
     const [clicked, setClicked] = useState(false)
+    
+    const timeoutFunc = () => {
+        setClicked(!clicked);
+        setTimeout(() => handleCorrect1())
+    }
 
     const handleCorrect1 = (e) => {
         
@@ -49,7 +54,7 @@ const Remainder = (props) => {
         <div>
             <h4>Challenge 1</h4>
             <p>Write a function that accepts two parameters, and returns the remainder of the two parameters </p>
-            <button id="handleCorrectRemainder" className={classes.button} onClick={(e) => {setClicked(!clicked); setTimeout(() => handleCorrect1(e), 500)}}>Reveal Answer</button>
+            <button id="handleCorrectRemainder" className={classes.button} onClick={(e) => timeoutFunc(e)}>Reveal Answer</button>
         </div>
     )
 }

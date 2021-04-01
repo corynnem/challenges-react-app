@@ -19,6 +19,11 @@ const PosNum = (props) => {
 
     const [clicked, setClicked] = useState(false)
 
+    const timeoutFunc = () => {
+        setClicked(!clicked);
+        setTimeout(() => handleCorrect1())
+    }
+
     const handleCorrect1 = (e) => {
         
         let button = document.getElementById('handleCorrectPosNum')
@@ -66,7 +71,7 @@ const PosNum = (props) => {
         <div>
             <h4>Challenge 1</h4>
             <p>Write an expression to check if a number is greater than, less than, or equal to zero. Then return a string stating if the number is greater than, less than, or equal to zero. </p>
-            <button id="handleCorrectPosNum" className={classes.button} onClick={(e) => {setClicked(!clicked); setTimeout(() => handleCorrect1(e), 500)}}>Reveal Answer</button>
+            <button id="handleCorrectPosNum" className={classes.button} onClick={(e) => timeoutFunc(e)}>Reveal Answer</button>
         </div>
     )
 }
